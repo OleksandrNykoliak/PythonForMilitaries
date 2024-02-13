@@ -205,3 +205,19 @@
 # z = x.union(y) # повертає об'єднання множин x і y і присвоює його змінній z
 
 # print(z)
+
+
+
+
+# text = 'TENET'
+    
+
+# print(text == text[::-1])
+
+# print(text == ''.join(reversed(text)))
+
+
+def square_digits(num):
+    return int(''.join(str(int(i)**2) for i in str(num)))
+    
+print(square_digits(9119))  # 811181
