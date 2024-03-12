@@ -100,3 +100,50 @@ t_byte_array = bytearray(10)
 # validated_names = [name.upper() for name in names if name[-1] == 'a']
 
 # print(validated_names)
+
+
+# a = [1,2,3]
+
+
+# a = iter(a)
+# print(next(a))
+# print(next(a))
+# print(next(a))
+# print(next(a))
+
+
+# StopIteration = 'Якась помилка яка виникла і ми її вирішили'
+
+# class MyIterator:
+#     def __init__(self, max):
+#         self.max = max
+#         self.counter = 0
+
+#     def __iter__(self):
+#         return self
+
+#     def __next__(self):
+#         if self.counter < self.max:
+#             self.counter += 1
+#             return self.counter
+#         else:
+#             raise 'Якась помилка яка виникла і ми її вирішили'
+
+# my_iter = MyIterator(3)
+
+# print(next(my_iter))
+# print(next(my_iter))
+# print(next(my_iter))
+# print(next(my_iter))
+
+
+
+# lambda storona: storona ** 2
+
+# print((lambda storona: storona ** 2)(5)) 
+
+
+# def kwadrat(storona):
+#     return storona ** 2
+
+# print(kwadrat(5))

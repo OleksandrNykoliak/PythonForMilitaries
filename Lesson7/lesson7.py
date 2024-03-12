@@ -157,3 +157,35 @@
 #     return helloWorld()
 
 # print(function([1,1,1,1,1,1]))
+
+
+
+
+
+# x = []
+
+# for i in  range(1, 101):
+#     x.append(i)
+    
+# print(x)  
+
+# x = [i for i in range(1, 101) if i % 2 == 0]  
+
+# print(x)
+
+
+
+# Зробіть список з алфавіту англійського || a = [i for i in alphabet]
+# Зробіть список з голосних літер
+# підніміть всі літери в верхній регістр
+# переверніть список
+
+import string 
+
+
+alphabet = string.ascii_lowercase
+
+
+a = [bukva.upper() for bukva in reversed(alphabet) if bukva in 'aouei']
+
+print(a)
