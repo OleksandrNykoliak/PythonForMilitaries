@@ -167,7 +167,6 @@ logging.basicConfig(level=logging.INFO,
 # print((lambda hello: hello + ' world')('hello'))
 
 
-
 # def calculator(a, b, operation):
 #     operations = {
 #         'add': lambda a, b: a + b,
@@ -176,13 +175,11 @@ logging.basicConfig(level=logging.INFO,
 #         'div': lambda a, b: a / b,
 #         'pow': lambda a, b: a ** b,
 #     }
-    
+
 #     return f"Гарно написана стрінга: {operations[operation](a, b)}"
 
 
 # print(calculator(10, 5, 'add'))
-
-
 
 
 # def function(number):
@@ -190,7 +187,7 @@ logging.basicConfig(level=logging.INFO,
 
 # lambda number: 'Odd' if number % 2 else 'Even'
 
-# print((lambda number: 'Odd' if number % 2 else 'Even')(10)) 
+# print((lambda number: 'Odd' if number % 2 else 'Even')(10))
 
 
 # def farengeit(celsius):
@@ -199,22 +196,23 @@ logging.basicConfig(level=logging.INFO,
 # lambda celsius: (celsius * 9/5) + 32
 
 
-
 # def function(my_list):
 #     return lambda: list(set([i for i in my_list if i % 2 == 0]))
 
 
-# print(function([1,2,3,2,5,6,7,6,5,4,5,6,7,1,2,3,2])()) 
+# print(function([1,2,3,2,5,6,7,6,5,4,5,6,7,1,2,3,2])())
 
 
-
-def get_grade(s1, s2, s3):
-    score = sum([s1, s2, s3])
-    
-    # return ['A', 'B', 'C', 'D', 'F']['90 <= score <= 100', '80 <= score < 90', '70 <= score < 80','60 <= score < 70', '0 <= score < 60'] 
-
-    return ['F', 'D', 'C', 'B', 'A'][score // 10 - 5]
+# def get_grade(s1, s2, s3):
+#     score = sum([s1, s2, s3])
+#     return 'A' if score >= 90 else 'B' if score >= 80 else 'C' if score >= 70 else 'D' if score >= 60 else 'F'
 
 
-print(get_grade(95, 90, 93)) # A
-    
+# def get_grade(*s):
+#     return 'FFFFFFDCBAA'[sum(s)//30]
+
+
+# print(get_grade(100, 5, 10)) # A
+
+
+# print('FFFFFFDCBAA'[300//30]) # A
