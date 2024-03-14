@@ -216,3 +216,67 @@ logging.basicConfig(level=logging.INFO,
 
 
 # print('FFFFFFDCBAA'[300//30]) # A
+
+# from actual_data import *
+
+# def weather(weatherToday):
+#     result = f'The weather is {weatherToday} today'
+#     return result
+
+# print(weather(weatherToday))
+
+# print(a)
+
+
+# def function(parametr, text):
+#    colors = {
+#         'PURPLE': '\033[95m',
+#         'CYAN': '\033[96m',
+#         'DARKCYAN': '\033[36m',
+#         'BLUE': '\033[94m',
+#         'GREEN': '\033[92m',
+#         'YELLOW': '\033[93m',
+#         'RED': '\033[91m',
+#         'BOLD': '\033[1m',
+#         'UNDERLINE': '\033[4m',
+#         'END': '\033[0m' }
+
+#    print(colors[parametr] + text + colors[parametr])
+
+
+# function('BOLD', 'якийсь текст')
+# function('PURPLE', 'якийсь текст')
+# function('CYAN', 'якийсь текст')
+# function('UNDERLINE', 'якийсь текст')
+# function('END', 'якийсь текст')
+# function('GREEN', 'якийсь текст')
+
+
+# colors = {
+#     'PURPLE': '\033[95m',
+#     'CYAN': '\033[96m',
+#     'DARKCYAN': '\033[36m',
+#     'BLUE': '\033[94m',
+#     'GREEN': '\033[92m',
+#     'YELLOW': '\033[93m',
+#     'RED': '\033[91m',
+#     'BOLD': '\033[1m',
+#     'UNDERLINE': '\033[4m',
+#     'END': '\033[0m'
+# }
+
+# def color_decorator(color):  # Decorator now takes a color parameter
+#     def decorator(function):
+#         def wrapper(*args, **kwargs):  # Use *args and **kwargs to accept an arbitrary number of arguments
+#             color_code = colors.get(color, '')  # Safely get the color code, defaulting to empty string if not found
+#             end_code = colors['END'] if color_code else ''  # Only add end code if a color code was found
+#             result = function(*args, **kwargs)  # Call the original function
+#             return f"{color_code}{result}{end_code}"  # Return the colored result
+#         return wrapper
+#     return decorator
+
+# @color_decorator('RED')  # Specify the color as a decorator parameter
+# def hello_world(text):
+#     return text
+
+# print(hello_world('hello world'))
