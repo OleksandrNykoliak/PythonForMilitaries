@@ -331,3 +331,15 @@
 
 
 # print(f'Податок який ви маєте заплатити: {tax}')
+
+
+
+data = {
+    'name': 'John',
+    'surname': 'Doe',
+    'age': 25
+}
+
+data['car'] = 'Ford'
+
+print(data)

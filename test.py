@@ -1,31 +1,10 @@
-def clean():
-    print('Cleaning up')
-    print('Done')
-    
-def cook():
-    print('Cooking')
-    print('Done')
-    
-def eat():
-    print('Eating')
-    print('Done')
+
+
+try:
+    a = (1,2,3,4)
+    a.append(100)
+except AttributeError:
+    print('дружелюбне повідомлення')
     
     
-class HomeStaff:
-    def __init__(self, name):
-        self.name = name
-        self.clean()
-        self.cook()
-        self.eat()
-        
-    def clean(self):
-        clean()
-        
-    def cook(self):
-        cook()
-        
-    def eat(self):
-        eat()
-        
-        
-a = HomeStaff()
+print('Цей текст має вивестись незалежно від того чи була помилка вище чи ні')
