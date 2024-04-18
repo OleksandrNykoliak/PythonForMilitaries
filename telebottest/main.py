@@ -27,3 +27,8 @@ def photo(message):
 
 
 bot.infinity_polling()
+
+
+
+
+# https://pypi.org/project/pyTelegramBotAPI/
