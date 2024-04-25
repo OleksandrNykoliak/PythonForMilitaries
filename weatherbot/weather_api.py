@@ -11,6 +11,10 @@ def get_weather(api_key, city):
     return response.json()
 
 api_key = 'f28af951e85e978f03fbbb1c69c815c1'
-city = 'London'
+city = 'Lviv'
 weather_data = get_weather(api_key, city)
-print(weather_data)
+
+for key, value in weather_data.items():
+    print(f'{key}: {value}')
+
+

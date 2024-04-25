@@ -1,37 +1,56 @@
-from telegram import Update
-from telegram.ext import Updater, CommandHandler, CallbackContext, MessageHandler, Filters
-import logging
-from weather_api import get_weather 
+from json import load
+import telebot
+import requests
+import os
+from dotenv import load_dotenv
 
-logging.basicConfig(format='%(asctime)s - %(name)s - %(levelname)s - %(message)s',
-                    level=logging.INFO)
-logger = logging.getLogger(__name__)
+load_dotenv()
 
-def start(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text('Hi! Send me a city name, and I will send you the weather report.')
+YOUR_BOT_TOKEN = os.getenv('YOUR_BOT_TOKEN')
+API_KEY = os.getenv('API_KEY')
 
-def help_command(update: Update, context: CallbackContext) -> None:
-    update.message.reply_text('Just send me a city name!')
 
-def weather(update: Update, context: CallbackContext) -> None:
-    city = update.message.text
-    api_key = 'f28af951e85e978f03fbbb1c69c815c1'
-    weather_data = get_weather(api_key, city)
-    weather_report = f"Weather in {city}: {weather_data['weather'][0]['description']}, Temp: {weather_data['main']['temp']}°C"
-    update.message.reply_text(weather_report)
+def get_weather(API_KEY, city):
+    base_url = "http://api.openweathermap.org/data/2.5/weather"
+    params = {
+        'q': city,
+        'appid': API_KEY,
+        'units': 'metric'
+    }
+    response = requests.get(base_url, params=params)
+    return response.json()
 
-def main():
-    """Start the bot."""
-    updater = Updater("6728571239:AAFJwYMeDxiQ937kWeppOCms2saFQlOlciU", use_context=True)
 
-    dispatcher = updater.dispatcher
 
-    dispatcher.add_handler(CommandHandler("start", start))
-    dispatcher.add_handler(CommandHandler("help", help_command))
-    dispatcher.add_handler(MessageHandler(Filters.text & ~Filters.command, weather))
 
-    updater.start_polling()
-    updater.idle()
+bot = telebot.TeleBot(YOUR_BOT_TOKEN)
 
-if __name__ == '__main__':
-    main()
+
+@bot.message_handler(commands=['start', 'help'])
+def send_welcome(message):
+    bot.reply_to(
+        message, "Введіть будь ласка місто, погоду якого ви хочете дізнатись: ")
+
+
+@bot.message_handler(func=lambda message: True)
+def echo_all(message):
+    import datetime
+    city = message.text
+    weather_data = get_weather(API_KEY, city)
+    description = weather_data['weather'][0]['description']
+    temperature = weather_data['main']['temp']
+    windy = weather_data['wind']['speed']
+    clouds = weather_data['clouds']['all']
+    sunrise = datetime.datetime.fromtimestamp(
+        weather_data['sys']['sunrise']).strftime('%H:%M:%S')
+    sunset = datetime.datetime.fromtimestamp(
+        weather_data['sys']['sunset']).strftime('%H:%M:%S')
+    bot.reply_to(message, f'Погода у місті {city}:\n'
+                          f'Опис: {description}\n'
+                          f'Температура: {temperature}°C\n'
+                          f'Швидкість вітру: {windy} м/с\n'
+                          f'Хмарність: {clouds}%\n'
+                          f'Схід сонця: {sunrise}\n'
+                          f'Захід сонця: {sunset}')
+
+bot.infinity_polling()
