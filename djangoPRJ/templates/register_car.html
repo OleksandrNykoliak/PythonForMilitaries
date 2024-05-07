@@ -1,0 +1,14 @@
+<!-- register_car.html -->
+<form method="post">
+    {% csrf_token %}
+    <label for="model">Модель:</label>
+    <input type="text" id="model" name="model" required>
+    <br>
+    <label for="price">Ціна:</label>
+    <input type="text" id="price" name="price" required>
+    <br>
+    <label for="year">Рік:</label>
+    <input type="text" id="year" name="year" required>
+    <br>
+    <button type="submit">Відправити заявку на сервіс</button>
+</form>
